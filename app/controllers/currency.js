@@ -5,7 +5,8 @@ var config = require('../../config/config');
 // Set the initial vars
 var timestamp = +new Date(),
     delay = config.currencyRefresh * 60000,
-    bitstampRate = 0;
+    bitfinexRate = 0,
+    cryptsyRate = 0;
 
 exports.index = function(req, res) {
 
@@ -40,21 +41,27 @@ exports.index = function(req, res) {
 
   // Init
   var currentTime = +new Date();
-  if (bitstampRate === 0 || currentTime >= (timestamp + delay)) {
+  if (bitfinexRate === 0 || currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
-    _request('https://www.bitstamp.net/api/ticker/', function(err, data) {
-      if (!err) bitstampRate = parseFloat(JSON.parse(data).last);
-
-      res.jsonp({
-        status: 200,
-        data: { bitstamp: bitstampRate }
-      });
-    });
-  } else {
-    res.jsonp({
-      status: 200,
-      data: { bitstamp: bitstampRate }
+    _request('https://api.bitfinex.com/v1/ticker/drkusd', function(err, data) {
+      if (!err) bitfinexRate = parseFloat(JSON.parse(data).last_price);
     });
   }
+
+  if (cryptsyRate === 0 || currentTime >= (timestamp + delay)) {
+    timestamp = currentTime;
+
+    _request('http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=213', function(err, data) {
+      if (!err) cryptsyRate = parseFloat(JSON.parse(data).return.markets.DRK.lasttradeprice);
+    });
+  }
+
+  res.jsonp({
+    status: 200,
+    data: { 
+      bitfinex: bitfinexRate,
+      cryptsy: cryptsyRate
+    }
+  });
 };
