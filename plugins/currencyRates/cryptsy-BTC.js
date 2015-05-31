@@ -1,11 +1,11 @@
 var _ = require('lodash');
 
 module.exports.id = 'Cryptsy-BTC';
-module.exports.url = 'http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=155';
+module.exports.url = 'https://api.cryptsy.com/api/v2/markets/155';
 
 module.exports.parseFn = function(raw) {
   return [{
     code: 'BTC',
-    rate: parseFloat(raw.return.markets.DRK.lasttradeprice)
+    rate: parseFloat(raw.data.last_trade.price)
   }];
 };

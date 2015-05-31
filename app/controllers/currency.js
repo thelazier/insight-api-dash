@@ -52,8 +52,8 @@ exports.index = function(req, res) {
   if (cryptsyRate === 0 || currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
-    _request('http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=213', function(err, data) {
-      if (!err) cryptsyRate = parseFloat(JSON.parse(data).return.markets.DRK.lasttradeprice);
+    _request('https://api.cryptsy.com/api/v2/markets/213', function(err, data) {
+      if (!err) cryptsyRate = parseFloat(JSON.parse(data).data.last_trade.price);
     });
   }
 
