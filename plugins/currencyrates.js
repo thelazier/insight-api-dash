@@ -13,7 +13,7 @@
   var currencyRatesPlugin = {};
 
   function getCurrentTs() {
-    return Math.floor(new Date() / 1000);
+    return Math.floor(Date.now() / 1000);
   };
 
   function getKey(sourceId, code, ts) {
