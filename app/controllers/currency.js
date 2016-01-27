@@ -6,6 +6,7 @@ var config = require('../../config/config');
 var timestamp = +new Date(),
     delay = config.currencyRefresh * 60000,
     bitfinexRate = 0,
+    coincapRate = 0,coincapFront,
     cryptsyRate = 0;
 
 exports.index = function(req, res) {
@@ -57,9 +58,22 @@ exports.index = function(req, res) {
     });
   }
 
+  if (coincapRate === 0 ||  currentTime >= (timestamp + delay)) {
+    timestamp = currentTime;
+
+    _request('http://www.coincap.io/front', function(err, data) {
+      if (!err) coincapFront = JSON.parse(data);
+      for (var i=0; i< coincapFront.length; i++) {
+        if ( coincapFront[i].short == 'DASH' ) coincapRate = parseFloat(coincapFront[i].price);
+      }
+    });
+  }
+
+
   res.jsonp({
     status: 200,
     data: { 
+      coincap: coincapRate,
       bitfinex: bitfinexRate,
       cryptsy: cryptsyRate
     }
