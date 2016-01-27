@@ -3,7 +3,7 @@
 var config = require('../../config/config');
 
 // Set the initial vars
-var timestamp = +new Date(),
+var timestamp = Date.now(),
     delay = config.currencyRefresh * 60000,
     coincapRate = 0,coincapFront;
 
@@ -39,7 +39,7 @@ exports.index = function(req, res) {
   };
 
   // Init
-  var currentTime = +new Date();
+  var currentTime = Date.now();
   if (coincapRate === 0 ||  currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
