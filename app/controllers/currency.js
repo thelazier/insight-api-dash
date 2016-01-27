@@ -5,8 +5,7 @@ var config = require('../../config/config');
 // Set the initial vars
 var timestamp = +new Date(),
     delay = config.currencyRefresh * 60000,
-    coincapRate = 0,coincapFront,
-    cryptsyRate = 0;
+    coincapRate = 0,coincapFront;
 
 exports.index = function(req, res) {
 
@@ -41,14 +40,6 @@ exports.index = function(req, res) {
 
   // Init
   var currentTime = +new Date();
-  if (cryptsyRate === 0 || currentTime >= (timestamp + delay)) {
-    timestamp = currentTime;
-
-    _request('https://api.cryptsy.com/api/v2/markets/213', function(err, data) {
-      if (!err) cryptsyRate = parseFloat(JSON.parse(data).data.last_trade.price);
-    });
-  }
-
   if (coincapRate === 0 ||  currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
@@ -64,8 +55,7 @@ exports.index = function(req, res) {
   res.jsonp({
     status: 200,
     data: { 
-      coincap: coincapRate,
-      cryptsy: cryptsyRate
+      coincap: coincapRate
     }
   });
 };
