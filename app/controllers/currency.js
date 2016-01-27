@@ -5,7 +5,6 @@ var config = require('../../config/config');
 // Set the initial vars
 var timestamp = +new Date(),
     delay = config.currencyRefresh * 60000,
-    bitfinexRate = 0,
     coincapRate = 0,coincapFront,
     cryptsyRate = 0;
 
@@ -42,14 +41,6 @@ exports.index = function(req, res) {
 
   // Init
   var currentTime = +new Date();
-  if (bitfinexRate === 0 || currentTime >= (timestamp + delay)) {
-    timestamp = currentTime;
-
-    _request('https://api.bitfinex.com/v1/ticker/drkusd', function(err, data) {
-      if (!err) bitfinexRate = parseFloat(JSON.parse(data).last_price);
-    });
-  }
-
   if (cryptsyRate === 0 || currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
@@ -74,7 +65,6 @@ exports.index = function(req, res) {
     status: 200,
     data: { 
       coincap: coincapRate,
-      bitfinex: bitfinexRate,
       cryptsy: cryptsyRate
     }
   });
