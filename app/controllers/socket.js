@@ -56,10 +56,10 @@ var fullTx = function(tx) {
   return t;
 };
 
-module.exports.broadcastTx = function(tx) {
+module.exports.broadcastTx = function(tx, txType) {
   if (ios) {
     var t = (typeof tx === 'string') ? simpleTx(tx) : fullTx(tx);
-    ios.sockets.in('inv').emit('tx', t);
+    ios.sockets.in('inv').emit(txType ? txType : 'tx', t);
   }
 };
 
