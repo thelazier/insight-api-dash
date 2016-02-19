@@ -18,8 +18,11 @@ exports.block = function(req, res, next, hash) {
     else {
       tdb.getPoolInfo(block.info.tx[0], function(info) {
         block.info.poolInfo = info;
-        req.block = block.info;
-        return next();
+        tdb.getValueOut(block.info.tx[0], function(info) {
+          block.info.cbvalue = info;
+          req.block = block.info;
+          return next();
+        });
       });
     }
   });
@@ -68,8 +71,12 @@ var getBlock = function(blockhash, cb) {
 
     tdb.getPoolInfo(block.info.tx[0], function(info) {
       block.info.poolInfo = info;
-      return cb(err, block.info);
+      tdb.getValueOut(block.info.tx[0], function(info) {
+        block.info.cbvalue = info;
+        return cb(err, block.info);
+      });
     });
+
 
   });
 };
@@ -142,6 +149,7 @@ exports.list = function(req, res) {
               time: b.ts || info.time,
               txlength: info.tx.length,
               difficulty: b.difficulty || info.difficulty,
+              cbvalue: b.cbvalue || info.cbvalue,
               poolInfo: info.poolInfo
             });
           });
