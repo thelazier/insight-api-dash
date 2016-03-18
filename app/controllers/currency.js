@@ -5,6 +5,7 @@ var config = require('../../config/config');
 // Set the initial vars
 var timestamp = Date.now(),
     delay = config.currencyRefresh * 60000,
+    exmoRate = 0,
     coincapRate = 0,coincapFront;
 
 exports.index = function(req, res) {
@@ -40,6 +41,15 @@ exports.index = function(req, res) {
 
   // Init
   var currentTime = Date.now();
+
+  if (exmoRate === 0 ||  currentTime >= (timestamp + delay)) {
+    timestamp = currentTime;
+
+    _request('https://api.exmo.com/v1/ticker/', function(err, data) {
+      if (!err) exmoRate = parseFloat(JSON.parse(data).DASH_USD.avg);
+    });
+  }
+
   if (coincapRate === 0 ||  currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
@@ -51,10 +61,10 @@ exports.index = function(req, res) {
     });
   }
 
-
   res.jsonp({
     status: 200,
     data: { 
+      exmo: exmoRate,
       coincap: coincapRate
     }
   });
