@@ -223,5 +223,13 @@
       "searchStrings":[
          "yourbtc.net"
       ]
+   },
+   {
+      "poolName":"P2Pool-DASH",
+      "url":"https://github.com/dashpay/p2pool-dash/",
+      "searchStrings":[
+         "P2Pool-DASH",
+         "P2Pool-tDASH"
+      ]
    }
 ]
