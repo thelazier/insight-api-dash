@@ -46,7 +46,12 @@ exports.index = function(req, res) {
     timestamp = currentTime;
 
     _request('https://api.exmo.com/v1/ticker/', function(err, data) {
-      if (!err) exmoRate = parseFloat(JSON.parse(data).DASH_USD.avg);
+      if (!err) {
+        if (JSON.parse(data).result === false)
+          exmoRate = exmoRate;
+        else
+          exmoRate = parseFloat(JSON.parse(data).DASH_USD.avg);
+      }
     });
   }
 
