@@ -231,5 +231,22 @@
          "P2Pool-DASH",
          "P2Pool-tDASH"
       ]
+   },
+   {
+      "poolName":"coinmine.pl",
+      "url":"https://www2.coinmine.pl/dash/",
+      "searchStrings":[
+         "XxRB5fnF8KpB9jjRRb7M7pq4qtyL8xbUou"
+      ]
+   },
+   {
+      "poolName":"unknown",
+      "url":"",
+      "searchStrings":[
+         "Xy2XVFCESyp53HKojkr5iGDmTsk1Bvt1n9",
+         "XhP7fJXgw4RbnCNiYJSZNhKJcDNdtCGMNz",
+         "XuZD3CxqtN7HAQkpUNYa9qpcdFmz134che",
+         "XqgCH9PmtGXAsVZkAsG83PKDExZN51811D"
+      ]
    }
 ]
