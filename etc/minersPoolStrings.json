@@ -261,6 +261,13 @@
       ]
    },
    {
+      "poolName":"Multipool.us",
+      "url":"https://www.multipool.us/dashboard/pool/drk",
+      "searchStrings":[
+         "XtTwRjpviDMp729eNWLnZMpSDqX8WpbD45"
+      ]
+   },
+   {
       "poolName":"Xy2XVFCESy...",
       "url":"/address/Xy2XVFCESyp53HKojkr5iGDmTsk1Bvt1n9",
       "searchStrings":[
