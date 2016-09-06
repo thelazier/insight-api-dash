@@ -240,13 +240,52 @@
       ]
    },
    {
-      "poolName":"unknown",
-      "url":"",
+      "poolName":"suchpool.pw",
+      "url":"https://www.suchpool.pw/dash/",
       "searchStrings":[
-         "Xy2XVFCESyp53HKojkr5iGDmTsk1Bvt1n9",
-         "XhP7fJXgw4RbnCNiYJSZNhKJcDNdtCGMNz",
-         "XuZD3CxqtN7HAQkpUNYa9qpcdFmz134che",
+         "XfgNCeTJxBVHb9CCpn52QyfjfpBmPQUYdA"
+      ]
+   },
+   {
+      "poolName":"Xy2XVFCESy...",
+      "url":"/address/Xy2XVFCESyp53HKojkr5iGDmTsk1Bvt1n9",
+      "searchStrings":[
+         "Xy2XVFCESyp53HKojkr5iGDmTsk1Bvt1n9"
+      ]
+   },
+   {
+      "poolName":"XhP7fJXgw4...",
+      "url":"/address/XhP7fJXgw4RbnCNiYJSZNhKJcDNdtCGMNz",
+      "searchStrings":[
+         "XhP7fJXgw4RbnCNiYJSZNhKJcDNdtCGMNz"
+      ]
+   },
+   {
+      "poolName":"XuZD3CxqtN...",
+      "url":"/address/XuZD3CxqtN7HAQkpUNYa9qpcdFmz134che",
+      "searchStrings":[
+         "XuZD3CxqtN7HAQkpUNYa9qpcdFmz134che"
+      ]
+   },
+   {
+      "poolName":"XqqKjv7QTN...",
+      "url":"/address/XqqKjv7QTN6P3cRvgkZSK6ENYEun5yKxNi",
+      "searchStrings":[
+         "XqqKjv7QTN6P3cRvgkZSK6ENYEun5yKxNi"
+      ]
+   },
+   {
+      "poolName":"XqgCH9PmtG...",
+      "url":"/address/XqgCH9PmtGXAsVZkAsG83PKDExZN51811D",
+      "searchStrings":[
          "XqgCH9PmtGXAsVZkAsG83PKDExZN51811D"
+      ]
+   },
+   {
+      "poolName":"XiGkHPMa15...",
+      "url":"/address/XiGkHPMa15jT8mEcNqCN9PdBxoT7b6HRnL",
+      "searchStrings":[
+         "XiGkHPMa15jT8mEcNqCN9PdBxoT7b6HRnL"
       ]
    }
 ]
