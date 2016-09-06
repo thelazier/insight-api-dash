@@ -268,6 +268,13 @@
       ]
    },
    {
+      "poolName":"coinotron.com",
+      "url":"https://www.coinotron.com/coinotron/app?action=ChartNoLogon&span=0&type=C&name=DRK",
+      "searchStrings":[
+         "XwfiFDTgpVdMBiHKtLZ5Q8KzghZ8qgCfxb"
+      ]
+   },
+   {
       "poolName":"Xy2XVFCESy...",
       "url":"/address/Xy2XVFCESyp53HKojkr5iGDmTsk1Bvt1n9",
       "searchStrings":[
