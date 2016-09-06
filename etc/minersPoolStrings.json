@@ -247,6 +247,20 @@
       ]
    },
    {
+      "poolName":"Zpool",
+      "url":"http://www.zpool.ca/site/block?id=893",
+      "searchStrings":[
+         "Xv213F4TFanLqkxNkca2swwAAY1e7s7vLp"
+      ]
+   },
+   {
+      "poolName":"MiningPoolHub",
+      "url":"https://dash.miningpoolhub.com/",
+      "searchStrings":[
+         "Xemt2zeYELCkddJHvsW4x9ytqTEnkiviaH"
+      ]
+   },
+   {
       "poolName":"Xy2XVFCESy...",
       "url":"/address/Xy2XVFCESyp53HKojkr5iGDmTsk1Bvt1n9",
       "searchStrings":[
