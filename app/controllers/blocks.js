@@ -150,6 +150,7 @@ exports.list = function(req, res) {
               txlength: info.tx.length,
               difficulty: b.difficulty || info.difficulty,
               cbvalue: b.cbvalue || info.cbvalue,
+              version: info.version,
               poolInfo: info.poolInfo
             });
           });
