@@ -3,25 +3,32 @@
   "description": "An open-source bitcoin blockchain API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
   "version": "0.2.19",
   "repository": "git://github.com/bitpay/insight-api.git",
-  "contributors": [{
-    "name": "Matias Alejo Garcia",
-    "email": "ematiu@gmail.com"
-  }, {
-    "name": "Manuel Araoz",
-    "email": "manuelaraoz@gmail.com"
-  }, {
-    "name": "Mario Colque",
-    "email": "colquemario@gmail.com"
-  }, {
-    "name": "Gustavo Cortez",
-    "email": "cmgustavo83@gmail.com"
-  }, {
-    "name": "Juan Ignacio Sosa Lopez",
-    "email": "bechilandia@gmail.com"
-  }, {
-    "name": "Ivan Socolsky",
-    "email": "jungans@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Matias Alejo Garcia",
+      "email": "ematiu@gmail.com"
+    },
+    {
+      "name": "Manuel Araoz",
+      "email": "manuelaraoz@gmail.com"
+    },
+    {
+      "name": "Mario Colque",
+      "email": "colquemario@gmail.com"
+    },
+    {
+      "name": "Gustavo Cortez",
+      "email": "cmgustavo83@gmail.com"
+    },
+    {
+      "name": "Juan Ignacio Sosa Lopez",
+      "email": "bechilandia@gmail.com"
+    },
+    {
+      "name": "Ivan Socolsky",
+      "email": "jungans@gmail.com"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/bitpay/insight-api/issues"
   },
@@ -41,7 +48,9 @@
   },
   "bin": "insight.js",
   "scripts": {
-    "start": "node insight.js"
+    "start": "node insight.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "*",
@@ -54,7 +63,7 @@
     "commander": "^2.3.0",
     "connect-ratelimit": "git://github.com/dharmafly/connect-ratelimit.git#0550eff209c54f35078f46445000797fa942ab97",
     "cron": "^1.0.4",
-    "express": "~3.4.7",
+    "express": "~4.15.5",
     "glob": "*",
     "leveldown": "~0.10.0",
     "levelup": "~0.19.0",
@@ -64,11 +73,12 @@
     "moment": "~2.5.0",
     "preconditions": "^1.0.7",
     "request": "^2.48.0",
-    "socket.io": "1.0.6",
-    "socket.io-client": "1.0.6",
+    "socket.io": "2.0.2",
+    "socket.io-client": "2.0.2",
     "soop": "=0.1.5",
     "winston": "*",
-    "xmlhttprequest": "~1.6.0"
+    "xmlhttprequest": "~1.6.0",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "chai": "*",
@@ -84,5 +94,6 @@
     "memdown": "^0.10.2",
     "should": "^2.1.1",
     "sinon": "^1.10.3"
-  }
+  },
+  "snyk": true
 }
